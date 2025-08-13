@@ -1,0 +1,323 @@
+  <!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Dashboard - Agroclimatique</title>
+   {% load static %}
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'asset/images/favicon.png' %}">
+    
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    
+    <!-- Font Awesome -->
+     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'asset/images/ia__2_-removebg-preview.png' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    
+    <!-- Custom Stylesheet -->
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
+  
+</head>
+
+ <style>
+    .form-container {
+        background: transparent;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+        width: 100%;
+        max-width: 500px;
+        margin: auto;
+    }
+    .form-container h2 {
+        text-align: center;
+    }
+    .form-group {
+        margin-bottom: 15px;
+    }
+    label {
+        font-weight: bold;
+        display: block;
+    }
+    input {
+        width: 100%;
+        padding: 8px;
+        margin-top: 5px;
+        border: 1px solid #443c97;
+        border-radius: 5px;
+    }
+    .submit-btn {
+        width: 100%;
+        padding: 10px;
+        background: linear-gradient(135deg, #1232a3, #713faf);
+        color: white;
+        border: none;
+        border-radius: 5px;
+        cursor: pointer;
+        font-size: 16px;
+    }
+    .submit-btn:hover {
+        background: linear-gradient(135deg, #43569b, #7243b5);
+    }
+     .nav-header {
+    background: #ededef;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.nav-header img {
+    max-height: 80px;
+    width: auto;
+    display: block;
+}
+ 
+
+</style>
+<body>
+    <!-- Preloader -->
+     
+      <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+         <div class="nav-header">
+    <a href="{% url 'index' %}">
+        <img src="{% static 'asset/images/ia4.png' %}" alt="Logo" style="max-height:120px;">
+    </a>
+</div>
+        <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+    <!-- ...le reste de ton contenu... -->
+
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content clearfix">
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+                <div class="header-left">
+                    <div class="input-group icons">
+                        <input type="search" class="form-control" placeholder="Recherche" aria-label="Search Dashboard">
+                    </div>
+                </div>
+                                              
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+         <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                      <li class="nav-label">DASHBOARD</li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">DASHBOARD</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'index' %}">Accueil</a></li>
+                            <li><a href= "{% url 'cereale' %}">dashboard</a></li>
+                        </ul>
+                    </li>
+                                <li class="nav-label">Mes donnees</li>
+                                <li>
+                                    <a href="{% url 'renseigne' %}">
+                                        <i class="icon-graph menu-icon"></i><span class="nav-text">Formulaire de semense</span>
+                                    </a>
+                                </li>
+                               
+                                <li>
+                                    <a href="{% url 'table' %}">
+                                        <i class="icon-graph menu-icon"></i><span class="nav-text">Periodes utilisers</span>
+                                    </a>
+                                </li>
+                    
+  
+                     <li class="nav-label">CONSERVATIONS</li>
+                      
+                             <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                             </i><span class="nav-text">Cereales</span>
+                        </a>
+                        <ul aria-expanded="false">
+                             <li><a href="{% url 'mille' %}" >Mille</a></li>
+                            <li><a href="{% url 'riz' %}" >riz</a></li>
+                            <li><a href="{% url 'sorgho' %}" >Sorgho</a></li>
+                            <li><a href="{% url 'mais' %}" >Mais</a></li>
+                            <li><a href="{% url 'ble' %}" >Blé</a></li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                           </i><span class="nav-text">Legumes</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'tomate' %}">Legumes fruits</a></li>
+                                   <li><a href="{% url 'carotte' %}">Legumes racines</a></li>
+                                    <li><a href="{% url 'poivron' %}">Legumes feuilles</a></li>
+                                    <li><a href="{% url 'legume' %}">Legumineuses</a></li>
+                             
+                        </ul>
+                    </li>
+                              <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                             </i><span class="nav-text">Oleagineux</span>
+                        </a>
+                        <ul aria-expanded="false">
+                             <li><a href="{% url 'arachide' %}">Arachide</a></li>
+                            <li><a href="{% url 'arachide' %}">Soja</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                             </i><span class="nav-text">Fruits</span>
+                        </a>
+                        <ul aria-expanded="false">
+                             
+                              <li><a href="{% url 'cathegorieb' %}">Cathegorie A</a></li>
+                                       <li><a href="{% url 'cathegoriea' %}">Cathegorie B</a></li>
+                        </ul>
+                    </li>
+                         
+ 
+                    
+                     <li class="nav-label">Paramettre</li>
+                    <li>
+                        
+                        <a href="{% url 'service' %}">
+                            <i class="icon-graph menu-icon"></i><span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">
+                            <i class="icon-envelope menu-icon"></i><span class="nav-text">Contact</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+<div class="content-body">
+
+
+            <div class="row page-titles mx-0">
+                
+                <div class="col p-md-0">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="javascript:void(0)"></a></li>
+                        
+                    </ol>
+                </div>
+            </div>
+            <div class="content-body">
+                
+            <div class="container-fluid">
+                <div class="row">
+                    <div class="col-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <h4 class="card-title">Historique des demande</h4>
+                                
+                                <div class="table-responsive">
+                                    
+                                    <table class="table table-striped table-bordered zero-configuration">
+                                        <thead>
+                                            <tr>
+                                                <th>Nom de la semense</th>
+                                                <th>Mois de semense</th>
+                                                <th>Pays</th>
+                                                <th>Region</th>
+                                                <th>Date de prevision</th>
+                                            </tr>
+                                        </thead>
+                                        <tbody>
+                                           {% for semense in semenses %}
+                                        <tr>
+                                            <td>{{ semense.name }}</td>
+                                            <td>{{ semense.mois }}</td>
+                                            <td>{{ semense.pays }}</td>
+                                            <td>{{ semense.region }}</td>
+                                            <td>{{ semense.date }}</td>
+                                           <td>
+                                                
+<form method="post" action="{% url 'traitement' %}" style="display:inline;">
+    {% csrf_token %}
+    <input type="hidden" name="semense_id" value="{{ semense.id }}">
+    <button type="submit" class="btn btn-primary btn-sm">Traiter</button>
+</form>
+ 
+<form method="post" action="{% url 'supprimer_semense' semense.id %}" style="display:inline;">
+    {% csrf_token %}
+    <button type="submit" class="btn btn-danger btn-sm" onclick="return confirm('Voulez-vous vraiment supprimer cette semence ?');">Supprimer</button>
+</form>
+
+
+                                        </td>
+                                        </tr>
+                                        {% endfor %}
+                                        </tbody>
+                                         
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- #/ container -->
+        </div>
+        <!--**********************************
+            Content body end
+        ***********************************-->
+        
+        
+        <!--**********************************
+            Footer start
+        ***********************************-->
+        
+        <!--**********************************
+            Footer end
+        ***********************************-->
+    </div>
+    <!--**********************************
+        Main wrapper end
+    ***********************************-->
+
+    <!--**********************************
+        Scripts
+    ***********************************-->
+
+    <script src="{% static 'asset/js/styleSwitcher.js' %}"></script>
+
+    <script src="{% static 'asset/plugins/tables/js/jquery.dataTables.min.js' %}"></script>
+    <script src="{% static 'asset/plugins/tables/js/datatable/dataTables.bootstrap4.min.js' %}"></script>
+    <script src="{% static 'asset/plugins/tables/js/datatable-init/datatable-basic.min.js' %}"></script>
+    <script src="{% static 'asset/plugins/common/common.min.js' %}"></script>
+    <script src="{% static 'asset/js/custom.min.js' %}"></script>
+    <script src="{% static 'asset/js/settings.js' %}"></script>
+    <script src="{% static 'asset/js/gleek.js' %}"></script>
+</body>
+</html>
+</body>
+
+
+<!-- Mirrored from themewagon.github.io/quixlab/table-datatable.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Apr 2025 16:44:48 GMT -->
+</html>

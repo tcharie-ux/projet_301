@@ -1,0 +1,311 @@
+   <!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Dashboard - Agroclimatique</title>
+    {% load static %}
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'asset/images/favicon.png' %}">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <!-- Custom Stylesheet -->
+      <link rel="icon" type="image/png" sizes="16x16" href="{% static 'asset/images/ia__2_-removebg-preview.png' %}">
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
+    <meta name="theme-color" content="#712cf9">
+    <style>
+      .bd-placeholder-img {
+        font-size: 1.125rem;
+        text-anchor: middle;
+        -webkit-user-select: none;
+        -moz-user-select: none;
+        user-select: none;
+      }
+      @media (min-width: 768px) {
+        .bd-placeholder-img-lg {
+          font-size: 3.5rem;
+        }
+      }
+      .b-example-divider {
+        width: 100%;
+        height: 3rem;
+        background-color: rgba(248, 248, 244, 0);
+        border: solid rgba(0, 0, 0, .15);
+        border-width: 1px 0;
+        box-shadow: inset 0 .5em 1.5em rgba(207, 203, 203, 0.1), inset 0 .125em .5em rgba(179, 163, 163, 0.15);
+      }
+      .b-example-vr {
+        flex-shrink: 0;
+        width: 1.5rem;
+        height: 100vh;
+      }
+      .bi {
+        vertical-align: -.125em;
+        fill: currentColor;
+      }
+      .nav-scroller {
+        position: relative;
+        z-index: 2;
+        height: 2.75rem;
+        overflow-y: hidden;
+      }
+      .nav-scroller .nav {
+        display: flex;
+        flex-wrap: nowrap;
+        padding-bottom: 1rem;
+        margin-top: -1px;
+        overflow-x: auto;
+        text-align: center;
+        white-space: nowrap;
+        -webkit-overflow-scrolling: touch;
+      }
+      .btn-bd-primary {
+        --bd-violet-bg: #712cf9;
+        --bd-violet-rgb: 112.520718, 44.062154, 249.437846;
+        --bs-btn-font-weight: 600;
+        --bs-btn-color: var(--bs-white);
+        --bs-btn-bg: var(--bd-violet-bg);
+        --bs-btn-border-color: var(--bd-violet-bg);
+        --bs-btn-hover-color: var(--bs-white);
+        --bs-btn-hover-bg: #6528e0;
+        --bs-btn-hover-border-color: #6528e0;
+        --bs-btn-focus-shadow-rgb: var(--bd-violet-rgb);
+        --bs-btn-active-color: var(--bs-btn-hover-color);
+        --bs-btn-active-bg: #5a23c8;
+        --bs-btn-active-border-color: #5a23c8;
+      }
+      .bd-mode-toggle {
+        z-index: 1500;
+      }
+      .bd-mode-toggle .bi {
+        width: 1em;
+        height: 1em;
+      }
+      .bd-mode-toggle .dropdown-menu .active .bi {
+        display: block !important;
+      }
+       .nav-header {
+    background: #ededef;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.nav-header img {
+    max-height: 80px;
+    width: auto;
+    display: block;
+}
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+    <div id="main-wrapper">
+         <div class="nav-header">
+    <a href="{% url 'index' %}">
+        <img src="{% static 'asset/images/ia4.png' %}" alt="Logo" style="max-height:120px;">
+    </a>
+</div>
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content clearfix">
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+                <div class="header-left">
+                    <div class="input-group icons">
+                        <input type="search" class="form-control" placeholder="Rechercher" aria-label="Search Dashboard">
+                    </div>
+                </div>
+                <div class="header-right">
+                    <ul class="clearfix">
+                        <li class="icons dropdown">
+                            <a href="javascript:void(0)" data-toggle="dropdown">
+                                <i class="mdi mdi-email-outline"></i>
+                                <span class="badge gradient-1 badge-pill badge-primary">3</span>
+                            </a>
+                            <div class="drop-down animated fadeIn dropdown-menu">
+                                <div class="dropdown-content-heading d-flex justify-content-between">
+                                    <span class="">3 New Messages</span>
+                                </div>
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li class="notification-unread">
+                                            <a href="javascript:void()">
+                                                <img class="float-left mr-3 avatar-img" src="{% static 'asset/images/avatar/1.jpg' %}" alt="">
+                                                <div class="notification-content">
+                                                    <div class="notification-heading">Saiful Islam</div>
+                                                    <div class="notification-timestamp">08 Hours ago</div>
+                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="notification-unread">
+                                            <a href="javascript:void()">
+                                                <img class="float-left mr-3 avatar-img" src="{% static 'asset/images/avatar/2.jpg' %}" alt="">
+                                                <div class="notification-content">
+                                                    <div class="notification-heading">Adam Smith</div>
+                                                    <div class="notification-timestamp">08 Hours ago</div>
+                                                    <div class="notification-text">Can you do me a favour?</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar -->
+         <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                      <li class="nav-label">DASHBOARD</li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">DASHBOARD</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'index' %}">Accueil</a></li>
+                            <li><a href= "{% url 'cereale' %}">dashboard</a></li>
+                        </ul>
+                    </li>
+                                <li class="nav-label">Mes donnees</li>
+                                <li>
+                                    <a href="{% url 'renseigne' %}">
+                                        <i class="icon-graph menu-icon"></i><span class="nav-text">Formulaire de semense</span>
+                                    </a>
+                                </li>
+                              
+                                <li>
+                                    <a href="{% url 'table' %}">
+                                        <i class="icon-graph menu-icon"></i><span class="nav-text">Periodes utilisers</span>
+                                    </a>
+                                </li>
+                    
+  
+                     <li class="nav-label">CONSERVATIONS</li>
+                      
+                             <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                             </i><span class="nav-text">Cereales</span>
+                        </a>
+                        <ul aria-expanded="false">
+                             <li><a href="{% url 'mille' %}" >Mille</a></li>
+                            <li><a href="{% url 'riz' %}" >riz</a></li>
+                            <li><a href="{% url 'sorgho' %}" >Sorgho</a></li>
+                            <li><a href="{% url 'mais' %}" >Mais</a></li>
+                            <li><a href="{% url 'ble' %}" >Blé</a></li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                           </i><span class="nav-text">Legumes</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'tomate' %}">Legumes fruits</a></li>
+                                   <li><a href="{% url 'carotte' %}">Legumes racines</a></li>
+                                    <li><a href="{% url 'poivron' %}">Legumes feuilles</a></li>
+                                    <li><a href="{% url 'legume' %}">Legumineuses</a></li>
+                             
+                        </ul>
+                    </li>
+                              <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                             </i><span class="nav-text">Oleagineux</span>
+                        </a>
+                        <ul aria-expanded="false">
+                             <li><a href="{% url 'arachide' %}">Arachide</a></li>
+                            <li><a href="{% url 'arachide' %}">Soja</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                             </i><span class="nav-text">Fruits</span>
+                        </a>
+                        <ul aria-expanded="false">
+                             
+                              <li><a href="{% url 'cathegorieb' %}">Cathegorie A</a></li>
+                                       <li><a href="{% url 'cathegoriea' %}">Cathegorie B</a></li>
+                        </ul>
+                    </li>
+                         
+ 
+                    
+                     <li class="nav-label">Paramettre</li>
+                    <li>
+                        
+                        <a href="{% url 'service' %}">
+                            <i class="icon-graph menu-icon"></i><span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">
+                            <i class="icon-envelope menu-icon"></i><span class="nav-text">Contact</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <!-- Content Body -->
+        <main>
+            <div class="container py-4">
+                <div class="p-5 mb-4 bg-body-tertiary rounded-3">
+                    <div class="container-fluid py-5">
+                         <h1 class="display-5 fw-bold">Cas des legumes de feuille</h1>
+                    <p class="col-md-8 fs-4"> 
+                        La conservation du laittue s'effectue de la meme maniere que les autres legumes comme les epinard et les chou, mais il faut prendre en compte la temperature et l'humiditer.
+                         
+                    </p>
+                    </p>
+                  </div>
+                </div>
+                <div class="row align-items-md-stretch">
+                    <div class="col-md-6">
+                        <div class="h-100 p-5 text-bg-dark rounded-3">
+                       <h2>Lutte contre le pourissage.</h2>
+                      <p>il est primordial de separer la racine du laittue avecsa tige pricipale,le conserver au frais(refrigirateur), et separer des tiges fannee ou pourris  </p>
+                      <p>La laitue doit être stockée dans un endroit sombre pour la protéger de l’exposition directe à la lumière, car cela peut accélérer sa détérioration et provoquer des changements dans la couleur et le goût.</p>
+                        </div>
+                    </div>
+                
+                    <div class="col-md-6">
+                        <div class="h-100 p-5 bg-body-tertiary border rounded-3">
+                           <h2>Conservations.</h2>
+                      <p>Pour conserver le laittue, il est recommandé de le placer dans un sac en plastique perforé ou dans un contenant hermétique pour maintenir l'humidité tout en permettant une circulation d'air adéquate. Il est également conseillé de ne pas laver le laittue avant de le stocker, car l'humidité supplémentaire peut favoriser la croissance de moisissures.</p>
+                   <p>La conservation du laittue est un processus essentiel pour maintenir sa fraîcheur et sa qualité. Il est important de stocker le laittue dans un endroit frais et humide pour éviter qu'il ne se fane ou ne se détériore rapidement. Voici quelques conseils pour conserver le laittue de manière optimale :</p>
+                    </div>  
+                    </div>
+                </div>
+            </div>
+        </main>
+    </div>
+    <!-- Scripts -->
+    <script src="{% static 'asset/plugins/common/common.min.js' %}"></script>
+    <script src="{% static 'asset/js/custom.min.js' %}"></script>
+    <script src="{% static 'asset/js/settings.js' %}"></script>
+    <script src="{% static 'asset/js/gleek.js' %}"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.5/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+</body>
+</html>

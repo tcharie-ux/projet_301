@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+{% load static %}
+<html lang="fr">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="{% static 'css/style.css' %}">
+  <link rel="icon" type="image/png" sizes="16x16" href="{% static 'asset/images/ia__2_-removebg-preview.png' %}">
+  <title>Inscription</title>
+</head>
+<style>
+     @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@300;400;500;600;700&display=swap');
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: 'Montserrat', sans-serif;
+}
+
+body {
+  background: linear-gradient(to right, #e2e2e2, #c9d6ff);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 100vh;
+}
+
+.container {
+  background-color: #fff;
+  border-radius: 30px;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.35);
+  width: 400px;
+  max-width: 90%;
+  padding: 30px;
+}
+
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+h2 {
+  text-align: center;
+  margin-bottom: 20px;
+  color: #2c3e50;
+}
+
+input {
+  background-color: #eee;
+  border: none;
+  margin: 10px 0;
+  padding: 12px 15px;
+  font-size: 14px;
+  border-radius: 8px;
+}
+
+button {
+  background-color: #2da0a8;
+  color: #fff;
+  font-size: 14px;
+  padding: 12px;
+  border: none;
+  border-radius: 8px;
+  font-weight: 600;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-top: 15px;
+}
+
+button:hover {
+  background-color: #21848b;
+}
+
+p {
+  font-size: 13px;
+  text-align: center;
+  margin-top: 15px;
+}
+
+p a {
+  color: #2da0a8;
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.messages {
+  margin-top: 10px;
+  list-style: none;
+  padding: 0;
+  text-align: center;
+}
+
+.messages li {
+  background: #f8d7da;
+  color: #842029;
+  padding: 10px;
+  margin-top: 5px;
+  border-radius: 8px;
+}
+
+  </style>
+<body>
+  <div class="nav-header">
+    <a href="{% url 'index' %}">
+        <img src="{% static 'asset/images/ia4.png' %}" alt="Logo" style="max-height:120px;">
+    </a>
+</div>
+  <div class="container">
+    <div class="form-container">
+      <form method="POST"  >
+        {% csrf_token %}
+        <h2>Créer votre compte</h2>
+        <input type="text" name="nom" placeholder="Nom" required />
+        <input type="text" name="prenom" placeholder="Prénom" required />
+        <input type="email" name="email" placeholder="exemple@gmail.com"  required />
+        <input type="text" name="contact" placeholder="contact" required />
+        <input type="date" name="naissance" placeholder="Date de naissance" required />
+         <input type="password" name="password" placeholder="Mot de passe" required />
+       <button type="submit">S'inscrire</button>
+
+        <p>Vous avez déjà un compte ? <a href="{% url 'connection' %}">Se connecter</a></p>
+      </form>
+    </div>
+  </div>
+</body>
+</html>

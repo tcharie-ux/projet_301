@@ -1,0 +1,454 @@
+  
+<!DOCTYPE html>
+<html lang="en">
+
+
+<!-- Mirrored from themewagon.github.io/quixlab/layout-blank.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 02 Apr 2025 16:43:53 GMT -->
+<!-- Added by HTTrack --><meta http-equiv="content-type" content="text/html;charset=utf-8" /><!-- /Added by HTTrack -->
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>Icoach-Agro</title>
+    <!-- Favicon icon -->
+      {% load static %}
+    <link rel="icon" type="image/png" sizes="16x16" href="{% static 'asset/favicon.png' %}">
+     <link rel="icon" type="image/png" sizes="16x16" href="{% static 'asset/images/ia__2_-removebg-preview.png' %}">
+    <!-- Custom Stylesheet -->
+    <link href="{% static 'asset/css/style.css' %}" rel="stylesheet">
+
+</head>
+<style>
+    .nav-header {
+    background: #ededef;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top-left-radius: 12px;
+    border-bottom-left-radius: 0;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.03);
+}
+.nav-header img {
+    max-height: 80px;
+    width: auto;
+    display: block;
+}
+</style>
+<body>
+
+    <!--*******************
+        Preloader start
+    ********************-->
+    <div id="preloader">
+        <div class="loader">
+            <svg class="circular" viewBox="25 25 50 50">
+                <circle class="path" cx="50" cy="50" r="20" fill="none" stroke-width="3" stroke-miterlimit="10" />
+            </svg>
+        </div>
+    </div>
+    <!--*******************
+        Preloader end
+    ********************-->
+
+    
+    <!--**********************************
+        Main wrapper start
+    ***********************************-->
+    <div id="main-wrapper">
+
+        <!--**********************************
+            Nav header start
+        ***********************************-->
+        <div class="nav-header">
+            <a href="{% url 'index' %}">
+                <img src="{% static 'asset/images/ia4.png' %}" alt="Logo" style="max-height:120px;">
+            </a>
+        </div>
+        <!--**********************************
+            Nav header end
+        ***********************************-->
+
+        <!--**********************************
+            Header start
+        ***********************************-->
+        <div class="header">    
+            <div class="header-content clearfix">
+                
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+                <div class="header-left">
+                    <div class="input-group icons">
+                        <div class="input-group-prepend">
+                            <span class="input-group-text bg-transparent border-0 pr-2 pr-sm-3" id="basic-addon1"><i class="mdi mdi-magnify"></i></span>
+                        </div>
+                        <input type="search" class="form-control" placeholder="Search Dashboard" aria-label="Search Dashboard">
+                        <div class="drop-down   d-md-none">
+							<form action="#">
+								<input type="text" class="form-control" placeholder="Search">
+							</form>
+                        </div>
+                    </div>
+                </div>
+                <div class="header-right">
+                    <ul class="clearfix">
+                        <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
+                                <i class="mdi mdi-email-outline"></i>
+                                <span class="badge gradient-1 badge-pill badge-primary">3</span>
+                            </a>
+                            <div class="drop-down animated fadeIn dropdown-menu">
+                                <div class="dropdown-content-heading d-flex justify-content-between">
+                                    <span class="">3 New Messages</span>  
+                                    
+                                </div>
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li class="notification-unread">
+                                            <a href="javascript:void()">
+                                                <img class="float-left mr-3 avatar-img" src="{% static 'asset/avatar/1.jpg' %}" alt="">
+                                                <div class="notification-content">
+                                                    <div class="notification-heading">Saiful Islam</div>
+                                                    <div class="notification-timestamp">08 Hours ago</div>
+                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="notification-unread">
+                                            <a href="javascript:void()">
+                                                <img class="float-left mr-3 avatar-img" src="{% static 'asset/avatar/2.jpg' %}" alt="">
+                                                <div class="notification-content">
+                                                    <div class="notification-heading">Adam Smith</div>
+                                                    <div class="notification-timestamp">08 Hours ago</div>
+                                                    <div class="notification-text">Can you do me a favour?</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void()">
+                                                <img class="float-left mr-3 avatar-img" src="{% static 'asset/avatar/3.jpg' %}" alt="">
+                                                <div class="notification-content">
+                                                    <div class="notification-heading">Barak Obama</div>
+                                                    <div class="notification-timestamp">08 Hours ago</div>
+                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void()">
+                                                <img class="float-left mr-3 avatar-img" src="{% static 'asset/avatar/4.jpg' %}" alt="">
+                                                <div class="notification-content">
+                                                    <div class="notification-heading">Hilari Clinton</div>
+                                                    <div class="notification-timestamp">08 Hours ago</div>
+                                                    <div class="notification-text">Hello</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                        <li class="icons dropdown"><a href="javascript:void(0)" data-toggle="dropdown">
+                                <i class="mdi mdi-bell-outline"></i>
+                                <span class="badge badge-pill gradient-2 badge-primary">3</span>
+                            </a>
+                            <div class="drop-down animated fadeIn dropdown-menu dropdown-notfication">
+                                <div class="dropdown-content-heading d-flex justify-content-between">
+                                    <span class="">2 New Notifications</span>  
+                                    
+                                </div>
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li>
+                                            <a href="javascript:void()">
+                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
+                                                <div class="notification-content">
+                                                    <h6 class="notification-heading">Events near you</h6>
+                                                    <span class="notification-text">Within next 5 days</span> 
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void()">
+                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
+                                                <div class="notification-content">
+                                                    <h6 class="notification-heading">Event Started</h6>
+                                                    <span class="notification-text">One hour ago</span> 
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void()">
+                                                <span class="mr-3 avatar-icon bg-success-lighten-2"><i class="icon-present"></i></span>
+                                                <div class="notification-content">
+                                                    <h6 class="notification-heading">Event Ended Successfully</h6>
+                                                    <span class="notification-text">One hour ago</span>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="javascript:void()">
+                                                <span class="mr-3 avatar-icon bg-danger-lighten-2"><i class="icon-present"></i></span>
+                                                <div class="notification-content">
+                                                    <h6 class="notification-heading">Events to Join</h6>
+                                                    <span class="notification-text">After two days</span> 
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                    
+                                </div>
+                            </div>
+                        </li>
+                        <li class="icons dropdown d-none d-md-flex">
+                            <a href="javascript:void(0)" class="log-user"  data-toggle="dropdown">
+                                <span>English</span>  <i class="fa fa-angle-down f-s-14" aria-hidden="true"></i>
+                            </a>
+                            <div class="drop-down dropdown-language animated fadeIn  dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li><a href="javascript:void()">English</a></li>
+                                        <li><a href="javascript:void()">Dutch</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                        <li class="icons dropdown">
+                            <div class="user-img c-pointer position-relative"   data-toggle="dropdown">
+                                <span class="activity active"></span>
+                                <img src="{% static 'asset/user/1.png' %}" height="40" width="40" alt="">
+                            </div>
+                            <div class="drop-down dropdown-profile   dropdown-menu">
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li>
+                                            <a href="app-profile.html"><i class="icon-user"></i> <span>Profile</span></a>
+                                        </li>
+                                        <li>
+                                            <a href="email-inbox.html"><i class="icon-envelope-open"></i> <span>Inbox</span> <div class="badge gradient-3 badge-pill badge-primary">3</div></a>
+                                        </li>
+                                        
+                                        <hr class="my-2">
+                                        <li>
+                                            <a href="page-lock.html"><i class="icon-lock"></i> <span>Lock Screen</span></a>
+                                        </li>
+                                        <li><a href="page-login.html"><i class="icon-key"></i> <span>Logout</span></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!--**********************************
+            Header end ti-comment-alt
+        ***********************************-->
+
+        <!--**********************************
+            Sidebar start
+        ***********************************-->
+         <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                      <li class="nav-label">DASHBOARD</li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">DASHBOARD</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'index' %}">Accueil</a></li>
+                            <li><a href= "{% url 'cereale' %}">dashboard</a></li>
+                        </ul>
+                    </li>
+                                <li class="nav-label">Mes donnees</li>
+                                <li>
+                                    <a href="{% url 'renseigne' %}">
+                                        <i class="icon-graph menu-icon"></i><span class="nav-text">Formulaire de semense</span>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="{% url 'table' %}">
+                                        <i class="icon-graph menu-icon"></i><span class="nav-text">Periodes utilisers</span>
+                                    </a>
+                                </li>
+                    
+  
+                     <li class="nav-label">CONSERVATIONS</li>
+                      
+                             <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                             </i><span class="nav-text">Cereales</span>
+                        </a>
+                        <ul aria-expanded="false">
+                             <li><a href="{% url 'mille' %}" >Mille</a></li>
+                            <li><a href="{% url 'riz' %}" >riz</a></li>
+                            <li><a href="{% url 'sorgho' %}" >Sorgho</a></li>
+                            <li><a href="{% url 'mais' %}" >Mais</a></li>
+                            <li><a href="{% url 'ble' %}" >Blé</a></li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                           </i><span class="nav-text">Legumes</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'tomate' %}">Legumes fruits</a></li>
+                                   <li><a href="{% url 'carotte' %}">Legumes racines</a></li>
+                                    <li><a href="{% url 'poivron' %}">Legumes feuilles</a></li>
+                                    <li><a href="{% url 'legume' %}">Legumineuses</a></li>
+                             
+                        </ul>
+                    </li>
+                              <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                             </i><span class="nav-text">Oleagineux</span>
+                        </a>
+                        <ul aria-expanded="false">
+                             <li><a href="{% url 'arachide' %}">Arachide</a></li>
+                            <li><a href="{% url 'arachide' %}">Soja</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                             </i><span class="nav-text">Fruits</span>
+                        </a>
+                        <ul aria-expanded="false">
+                             
+                              <li><a href="{% url 'cathegorieb' %}">Cathegorie A</a></li>
+                                       <li><a href="{% url 'cathegoriea' %}">Cathegorie B</a></li>
+                        </ul>
+                    </li>
+                         
+ 
+                    
+                     <li class="nav-label">Paramettre</li>
+                    <li>
+                        
+                        <a href="{% url 'service' %}">
+                            <i class="icon-graph menu-icon"></i><span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">
+                            <i class="icon-envelope menu-icon"></i><span class="nav-text">Contact</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+<div class="content-body">
+             <div class="container-fluid">
+                <div class="row justify-content-center">
+                    <div class="col-lg-12">
+                        <div class="card">
+                            <div class="card-body">
+                                <div class="form-validation">
+                                <form method="POST" action="{% url 'renseigne' %}">
+                                            {% csrf_token %}
+                                          <div class="form-group row">
+    <label class="col-lg-4 col-form-label" for="name">Nom de la semense</label>
+    <div class="col-lg-6">
+        <select class="form-control" name="name" id="name">
+            <option value="maïs">maïs</option>
+            <option value="mille">mille</option>
+            <option value="sorgho">sorgho</option>  
+            <option value="riz">riz</option>
+            <option value="manioc">manioc</option>
+            <option value="igname">igname</option>
+            <option value="gombo">gombo</option>
+            <option value="feuille">feuille</option>
+            <option value="coton">coton</option>
+            <option value="cacao">cacao</option>
+            <option value="blé">blé</option>
+            <option value="arachide">arachide</option>
+            <option value="soja">soja</option>
+            <option value="tomate">tomate</option>            
+            <option value="carotte">carotte</option>
+            <option value="poivron">poivron</option>
+            <option value="pois">pois</option>
+            <option value="mangue">mangue</option>
+            <option value="banane">banane</option>
+            <option value="citron">citron</option>
+            <option value="orange">orange</option>
+            <option value="papaye">papaye</option>
+            <option value="ananas">ananas</option>
+            <option value="avocat">avocat</option>
+            <option value="pomme">pomme</option>
+            <option value="piment">piment</option>
+            <option value="chou">chou</option>
+            <option value="pasteque">pasteque</option>
+            <option value="haricot">haricot</option>
+            <option value="fraises">fraises</option>
+            <option value="laitue">laitue</option>
+            <option value="aubergine">aubergine</option>
+
+
+        </select>
+    </div>
+</div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="date">A quelle date semer
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="date" class="form-control" id="date" name="date" placeholder="periode">
+                                            </div>
+                                        </div>
+                                         <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="mois">la semense fera combien de mois
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="mois" name="mois" placeholder="duree">
+                                            </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-4 col-form-label" for="pays">Pays
+                                            </label>
+                                            <div class="col-lg-6">
+                                                <input type="text" class="form-control" id="pays" name="pays" placeholder="pays">
+                                            </div>
+                                        </div>
+                                       <div class="form-group row">
+    <label class="col-lg-4 col-form-label" for="region">Votre region</label>
+    <div class="col-lg-6">
+        <select class="form-control" name="region" id="region">
+            <option value="Savanes">Savanes</option>
+            <option value="Kara">Kara</option>
+            <option value="Centrale">Centrale</option>
+            <option value="Plateaux">Plateaux</option>
+            <option value="Maritime">Maritime</option>
+        </select>
+    </div>
+</div>
+                                        </div>
+                                         
+                                                                     
+                                        <div class="form-group row">
+                                            <div class="col-lg-8 ml-auto">
+                                                <button type="submit" class="btn btn-primary">Demande de prevision</button>
+                                            </div>
+                                        </div>
+                                    </form>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+                    
+
+    <!-- Scripts -->
+    <script src="{% static 'asset/plugins/common/common.min.js' %}"></script>
+    <script src="{% static 'asset/js/custom.min.js' %}"></script>
+    <script src="{% static 'asset/js/settings.js' %}"></script>
+    <script src="{% static 'asset/js/gleek.js' %}"></script>
+</body>
+</html>
+ 

@@ -1,0 +1,246 @@
+
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="auto"> 
+     <head>
+    {% load static %}
+    <title>Prévision Agroclimatique</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
+    <link rel="stylesheet" href="{% static 'asset/css/style.css' %}">
+    <style>
+        body {
+            background: linear-gradient(135deg, #e8f5e9 0%, #E6F7FF 100%);
+            min-height: 100vh;
+            font-family: 'Segoe UI', Arial, sans-serif;
+        }
+        .card-prevision {
+            background: #fff;
+            border-radius: 18px;
+            box-shadow: 0 4px 24px rgba(34,139,34,0.08);
+            padding: 2rem 2.5rem;
+            margin-bottom: 2rem;
+            border-left: 8px solid #81c784;
+        }
+        .card-prevision h2 {
+            color: #388e3c;
+            font-weight: 700;
+            margin-bottom: 1rem;
+        }
+        .card-prevision p {
+            font-size: 1.1rem;
+            color: #333;
+        }
+        .card-conseil {
+            background: #f1f8e9;
+            border-radius: 14px;
+            box-shadow: 0 2px 12px rgba(56,142,60,0.07);
+            padding: 1.5rem 2rem;
+            border-left: 6px solid #aed581;
+        }
+        .card-conseil h1 {
+            color: #689f38;
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+        }
+        .card-conseil p {
+            color: #4e5d42;
+            font-size: 1.05rem;
+        }
+        .breadcrumb {
+            background: transparent;
+            margin-bottom: 1.5rem;
+        }
+        @media (max-width: 768px) {
+            .card-prevision, .card-conseil {
+                padding: 1rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="main-wrapper">
+        <!-- Header and Sidebar remain unchanged -->
+ <div class="nav-header">
+    <a href="{% url 'index' %}">
+        <img src="{% static 'asset/images/ia4.png' %}" alt="Logo" style="max-height:120px;">
+    </a>
+</div>
+        <!-- Header -->
+        <div class="header">
+            <div class="header-content clearfix">
+                <div class="nav-control">
+                    <div class="hamburger">
+                        <span class="toggle-icon"><i class="icon-menu"></i></span>
+                    </div>
+                </div>
+                <div class="header-left">
+                    <div class="input-group icons">
+                        <input type="search" class="form-control" placeholder="Rechercher" aria-label="Search Dashboard">
+                    </div>
+                </div>
+                <div class="header-right">
+                    <ul class="clearfix">
+                        <li class="icons dropdown">
+                            <a href="javascript:void(0)" data-toggle="dropdown">
+                                <i class="mdi mdi-email-outline"></i>
+                                <span class="badge gradient-1 badge-pill badge-primary">3</span>
+                            </a>
+                            <div class="drop-down animated fadeIn dropdown-menu">
+                                <div class="dropdown-content-heading d-flex justify-content-between">
+                                    <span class="">3 New Messages</span>
+                                </div>
+                                <div class="dropdown-content-body">
+                                    <ul>
+                                        <li class="notification-unread">
+                                            <a href="javascript:void()">
+                                                <img class="float-left mr-3 avatar-img" src="{% static 'asset/images/avatar/1.jpg' %}" alt="">
+                                                <div class="notification-content">
+                                                    <div class="notification-heading">Saiful Islam</div>
+                                                    <div class="notification-timestamp">08 Hours ago</div>
+                                                    <div class="notification-text">Hi Teddy, Just wanted to let you ...</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                        <li class="notification-unread">
+                                            <a href="javascript:void()">
+                                                <img class="float-left mr-3 avatar-img" src="{% static 'asset/images/avatar/2.jpg' %}" alt="">
+                                                <div class="notification-content">
+                                                    <div class="notification-heading">Adam Smith</div>
+                                                    <div class="notification-timestamp">08 Hours ago</div>
+                                                    <div class="notification-text">Can you do me a favour?</div>
+                                                </div>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+        <!-- Sidebar -->
+        <div class="nk-sidebar">
+            <div class="nk-nav-scroll">
+                <ul class="metismenu" id="menu">
+                      <li class="nav-label">DASHBOARD</li>
+                    <li class="mega-menu mega-menu-sm">
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                            <i class="icon-globe-alt menu-icon"></i><span class="nav-text">DASHBOARD</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'index' %}">Accueil</a></li>
+                            <li><a href= "{% url 'cereale' %}">dashboard</a></li>
+                        </ul>
+                    </li>
+                                <li class="nav-label">Mes donnees</li>
+                                <li>
+                                    <a href="{% url 'renseigne' %}">
+                                        <i class="icon-graph menu-icon"></i><span class="nav-text">Formulaire de semense</span>
+                                    </a>
+                                </li>
+                                
+                                <li>
+                                    <a href="{% url 'table' %}">
+                                        <i class="icon-graph menu-icon"></i><span class="nav-text">Periodes utilisers</span>
+                                    </a>
+                                </li>
+                    
+  
+                     <li class="nav-label">CONSERVATIONS</li>
+                      
+                             <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                             </i><span class="nav-text">Cereales</span>
+                        </a>
+                        <ul aria-expanded="false">
+                             <li><a href="{% url 'mille' %}" >Mille</a></li>
+                            <li><a href="{% url 'riz' %}" >riz</a></li>
+                            <li><a href="{% url 'sorgho' %}" >Sorgho</a></li>
+                            <li><a href="{% url 'mais' %}" >Mais</a></li>
+                            <li><a href="{% url 'ble' %}" >Blé</a></li>
+                        </ul>
+                    </li>
+                     <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                           </i><span class="nav-text">Legumes</span>
+                        </a>
+                        <ul aria-expanded="false">
+                            <li><a href="{% url 'tomate' %}">Legumes fruits</a></li>
+                                   <li><a href="{% url 'carotte' %}">Legumes racines</a></li>
+                                    <li><a href="{% url 'poivron' %}">Legumes feuilles</a></li>
+                                    <li><a href="{% url 'legume' %}">Legumineuses</a></li>
+                             
+                        </ul>
+                    </li>
+                              <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                             </i><span class="nav-text">Oleagineux</span>
+                        </a>
+                        <ul aria-expanded="false">
+                             <li><a href="{% url 'arachide' %}">Arachide</a></li>
+                            <li><a href="{% url 'arachide' %}">Soja</a></li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a class="has-arrow" href="javascript:void()" aria-expanded="false">
+                             </i><span class="nav-text">Fruits</span>
+                        </a>
+                        <ul aria-expanded="false">
+                             
+                              <li><a href="{% url 'cathegorieb' %}">Cathegorie A</a></li>
+                                       <li><a href="{% url 'cathegoriea' %}">Cathegorie B</a></li>
+                        </ul>
+                    </li>
+                         
+ 
+                    
+                     <li class="nav-label">Paramettre</li>
+                    <li>
+                        
+                        <a href="{% url 'service' %}">
+                            <i class="icon-graph menu-icon"></i><span class="nav-text">Services</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="{% url 'contact' %}">
+                            <i class="icon-envelope menu-icon"></i><span class="nav-text">Contact</span>
+                        </a>
+                    </li>
+                    
+                </ul>
+            </div>
+        </div>
+        <div class="content-body">
+            <div class="container py-4">
+                <nav aria-label="breadcrumb">
+                    <ol class="breadcrumb">
+                        <li class="breadcrumb-item"><a href="{% url 'index' %}">Accueil</a></li>
+                        <li class="breadcrumb-item active" aria-current="page">Prévision</li>
+                    </ol>
+                </nav>
+                <div class="row justify-content-center">
+                    <div class="col-lg-8">
+                        <div class="card-prevision mb-4">
+                            <h2>Prévision pour {{ nom }} à {{ region }}</h2>
+                            <p><strong>Date de semence prévue :</strong> {{ date }}</p>
+                            <p><strong>Durée estimée de culture :</strong> {{ mois }} mois</p>
+                            <p class="mt-3"><strong>{{ message }}</strong></p>
+                        </div>
+                        <div class="card-conseil">
+                            <h1>Conseils</h1>
+                            <p>Pour une culture réussie, appliquez <code>du FUMIER</code> sur vos champs de culture <code>pas d'engrais</code> et semez après une pluie.</p>
+                            <p>Cela favorise une meilleure croissance des plantes et une meilleure rétention d'humidité dans le sol.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Footer and scripts remain unchanged -->
+        <script src="{% static 'asset/plugins/common/common.min.js' %}"></script>
+        <script src="{% static 'asset/js/custom.min.js' %}"></script>
+        <script src="{% static 'asset/js/settings.js' %}"></script>
+        <script src="{% static 'asset/js/gleek.js' %}"></script>
+        <script src="{% static 'asset/js/styleSwitcher.js' %}"></script>
+    </div>
+</body>
+</html>
