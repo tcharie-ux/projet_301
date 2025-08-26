@@ -60,7 +60,7 @@ ROOT_URLCONF = 'projet_301.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [BASE_DIR / 'application' / 'Templates'],  # <-- Ajoute ce chemin
+        'DIRS': [BASE_DIR / 'application' / 'Templates'], 
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
@@ -138,9 +138,9 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
  
 STATICFILES_DIRS = [
-    BASE_DIR / 'application' / 'templates',
     BASE_DIR / 'application' / 'static',
 ]
+
 REST_FRAMEWORK = {
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.DjangoModelPermissionsOrAnonReadOnly'
