@@ -34,6 +34,25 @@
  <link rel="stylesheet" href="{% static 'css/style.css' %}">
  <link rel="stylesheet" href="{% static 'csss/responsive.css' %}">
 </head>
+<style>
+	.alert-info {
+    position: absolute;
+    top: 145%;
+    left: 87%;
+    transform: translate(-50%, -20%);
+    background-color:transparent;
+    color: rgb(47, 39, 39);
+    padding: 20px;
+    border-radius: 10px;
+    font-weight: bold;
+    width: fit-content;
+    max-width: 90%;
+    text-align: center;
+    z-index: 1000;
+	border: none;
+}
+
+	</style>
     <body>
 		  
 		<!-- Header Area -->
@@ -64,7 +83,7 @@
 						</div>
 	 
 						<div class="alert alert-info">
-							<strong>Météo du jour à Kara</strong><br>
+							 <strong>Lomé</strong></br>
 							Température : {{ temperature }} °C<br>
 							Précipitation : {{ precipitation }} mm<br>
 							Humidité : {{ humidite }} %<br>
@@ -87,7 +106,7 @@
 					<div class="row">
 						<div class="col-lg-7">
 							<div class="text">
-								<h1>Bienvenu sur<span>Icoach Agro</span>Le service en qui vous avez confiance!</h1>
+								<h1>Bienvenu sur <span> Icoach Agro </span> Le service en qui vous avez confiance!</h1>
 								<h4>L'agroclimatologie intelligente pour une agriculture durable.</h4>
 								<div class="button">
 									<a href="{% url 'inscription' %}" class="btn">Commencer</a>

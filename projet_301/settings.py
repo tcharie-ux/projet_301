@@ -11,10 +11,13 @@ https://docs.djangoproject.com/en/5.1/ref/settings/
 """
 
 from pathlib import Path
-
+import os
+import environ
+import dj_database_url
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
-
+env = environ.Env()
+environ.Env.read_env()
 
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/5.1/howto/deployment/checklist/
@@ -75,17 +78,20 @@ WSGI_APPLICATION = 'projet_301.wsgi.application'
 # Database
 # https://docs.djangoproject.com/en/5.1/ref/settings/#databases
 
-DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'projet_301',
-        'USER': 'postgres',
-        'PASSWORD': ' ',  
-        'HOST': 'localhost',
-        'PORT':'5432',
-    }
-}
+#DATABASES = {
+    #'default': {
+        #'ENGINE': 'django.db.backends.postgresql',
+        #'NAME': 'projet_301',
+        #'USER': 'postgres',
+        #'PASSWORD': ' ',  
+        #'HOST': 'localhost',
+        #'PORT':'5432',
+    #}
+#}
 
+DATABASES = {
+    'default': dj_database_url.parse(env('DATABASE_URL'))
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.1/ref/settings/#auth-password-validators
@@ -141,5 +147,4 @@ REST_FRAMEWORK = {
 }
 
 USE_JSON_MODE = True  #  Mettre False pour utiliser la base Django
-ALLOWED_HOSTS = ['laure.pythonanywhere.com']
-DEBUG = False
+DEBUG = True

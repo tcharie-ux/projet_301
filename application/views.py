@@ -12,9 +12,7 @@ from datetime import date,datetime, timedelta
 from django.utils import timezone
 
 # Create your views here.
-def index(request):
-    return render(request, "index.html", get_meteo_context())
-
+ 
 
 def inscript(request):
     if request.method == "POST":
@@ -49,7 +47,7 @@ def connect(request):
             if check_password(password, client.password):
                 request.session['client_id'] = client.id
                 messages.success(request, "Connexion réussie.")
-                return redirect('cereale')   
+                return redirect('renseigne')   
             else:
                 messages.error(request, "Mot de passe incorrect.")
                 return redirect('connection')
@@ -224,8 +222,6 @@ def  catb(request):
 def  conseil(request):
     return render(request, 'conseil.html')
 
-from datetime import date
-from .models import DonneeJour
 
 def get_meteo_context(region="Kara"):
     today = date.today()
@@ -247,6 +243,9 @@ def get_meteo_context(region="Kara"):
         "humidite": humidite,
         "vent": vent
     }
+
+def index(request):
+    return render(request, "index.html", get_meteo_context())
 
 
 def cereal(request):
@@ -300,40 +299,68 @@ def evaluer_conditions(region, nom, type_semence, debut, fin,
             precipitation_totale >= 3 and
             humidite_moy >= 30 and
             temp_moy <= 30 and
-            vent_moy <= 20
+            vent_moy >= 20
         )
     elif type_semence == "legume_fruit":
         conditions = (
-            precipitation_totale >= 80 and
-            humidite_moy >= 75 and
-            temp_moy <= 28 and
-            vent_moy <= 18
+            precipitation_totale >= 8 and
+            humidite_moy >= 65 and
+            temp_moy <= 25 and
+            vent_moy >= 15
         )
     elif type_semence == "oleagineux":
         conditions = (
-            precipitation_totale >= 90 and
-            humidite_moy >= 65 and
-            temp_moy <= 32 and
-            vent_moy <= 25
+            precipitation_totale >= 6 and
+            humidite_moy >= 70 and
+            temp_moy <= 25 and
+            vent_moy >= 25
         )
+    elif type_semence == "fruit":
+        conditions = (
+            precipitation_totale >= 4 and
+            humidite_moy >= 60 and
+            temp_moy <= 25 and
+            vent_moy >= 25
+        )    
+    elif type_semence == "legume_feuille":
+        conditions = (
+            precipitation_totale >= 10 and
+            humidite_moy >= 80 and
+            temp_moy <= 25 and
+            vent_moy >= 15
+        )    
+    elif type_semence == "legume_racine":
+        conditions = (
+            precipitation_totale >= 10 and
+            humidite_moy >= 75 and
+            temp_moy <= 20 and
+            vent_moy >= 15
+        )
+    elif type_semence == "legumineuse":
+        conditions = (
+            precipitation_totale >= 30 and
+            humidite_moy >= 70 and
+            temp_moy <= 25 and
+            vent_moy >= 20
+        )                            
     else:
         conditions = (
-            precipitation_totale >= 100 and
-            humidite_moy >= 75 and
+            precipitation_totale >= 30 and
+            humidite_moy >= 35 and
             temp_moy <= 28 and
-            vent_moy <= 15
+            vent_moy >= 15
         )
 
     if conditions:
         message = (
-            f"(Source: {source}) La saison est favorable à la semence de {nom} à {region}. "
+            f"  La saison est favorable à la semence de {nom} à {region}. "
             f"Période recommandée : du {debut.strftime('%d/%m/%Y')} au {fin.strftime('%d/%m/%Y')}."
         )
         return message, debut, fin
     else:
         saison_attente = SAISONS_SEMENCE.get(type_semence, "Mai à Juin ou Août à Octobre")
         message = (
-            f"(Source: {source}) La saison à {region} n’est pas encore propice pour {nom}. "
+            f"  La saison à {region} n’est pas encore propice pour {nom}. "
             f"Vous pouvez attendre la saison {saison_attente}."
         )
         return message, None, None
@@ -375,7 +402,7 @@ def analyse_hybride(region, nom, type_semence, date_debut, mois):
 
             region_data = data.get(region)
             if not region_data:
-                return f"Aucune donnée pour la région {region} dans le fichier JSON.", None, None
+                return f"Aucune donnée pour la région {region}", None, None
 
             
             valeurs = []
@@ -394,7 +421,7 @@ def analyse_hybride(region, nom, type_semence, date_debut, mois):
                 return evaluer_conditions(region, nom, type_semence, date_debut, date_fin,
                                           temp_moy, humidite_moy, vent_moy, precipitation_totale, source='json')
             else:
-                return "Pas de données journalières JSON pour cette période.", None, None
+                return "Pas de données pour cette période.", None, None
 
         except FileNotFoundError:
             return "Fichier annee.json introuvable.", None, None
@@ -419,4 +446,4 @@ def analyse_hybride(region, nom, type_semence, date_debut, mois):
                 return evaluer_conditions(region, nom, type_semence, date_debut, date_fin,
                                           saison.temp_moy, saison.humidite_moy, saison.vent_moy, saison.precipitation_totale, source='saison')
             except DonneeSaison.DoesNotExist:
-                return "Pas de données disponibles pour cette région et année.", None, None
+                return "Pas de données disponibles pour cette région.", None, None
