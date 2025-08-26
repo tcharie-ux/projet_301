@@ -1,9 +1,12 @@
 from django.urls import path
 from . import views
+from django.shortcuts import redirect
 from django.urls import path, include
- 
+def redirect_to_index(request):   
+    return redirect('index')  # 'index' should match your url name or path
+
 urlpatterns=[
-path('', views.redirect_to_index),  # Redirect root URL to /index/
+path('',redirect_to_index),  # Redirect root URL to /index/
 path('index/', views.index, name='index'),
 
 path('inscription/', views.inscript, name='inscription'),

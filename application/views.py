@@ -247,10 +247,7 @@ def get_meteo_context(region="Kara"):
 def index(request):
     return render(request, "index.html", get_meteo_context())
 
-def redirect_to_index(request):
-     
-    return redirect('index')  # 'index' should match your url name or path
-
+ 
 def cereal(request):
     return render(request, "cereale.html", get_meteo_context())
 
